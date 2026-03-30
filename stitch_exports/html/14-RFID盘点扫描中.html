@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RFID 盘点扫描实时界面 - Sino-Asset Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#b95a00",
+                        "surface-bright": "#f9f9ff",
+                        "secondary": "#466084",
+                        "on-secondary-fixed-variant": "#2d486b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary": "#934600",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "outline-variant": "#c0c7d4",
+                        "on-secondary-fixed": "#001c3a",
+                        "surface-variant": "#e0e2ea",
+                        "surface-container-low": "#f1f3fc",
+                        "on-error-container": "#93000a",
+                        "background": "#f9f9ff",
+                        "outline": "#717784",
+                        "surface-tint": "#005fad",
+                        "surface-container-highest": "#e0e2ea",
+                        "secondary-fixed-dim": "#aec8f2",
+                        "on-surface-variant": "#414752",
+                        "on-background": "#181c22",
+                        "inverse-primary": "#a5c8ff",
+                        "surface-dim": "#d8dae2",
+                        "surface": "#f9f9ff",
+                        "on-tertiary-fixed": "#311300",
+                        "on-primary-fixed-variant": "#004784",
+                        "primary-container": "#0376d3",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#181c22",
+                        "inverse-on-surface": "#eef0f9",
+                        "tertiary-fixed-dim": "#ffb688",
+                        "on-secondary-container": "#415b7f",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e6e8f0",
+                        "secondary-fixed": "#d4e3ff",
+                        "primary-fixed": "#d4e3ff",
+                        "inverse-surface": "#2d3037",
+                        "tertiary-fixed": "#ffdbc7",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#b9d3fe",
+                        "primary": "#005da9",
+                        "on-primary-container": "#fefcff",
+                        "on-tertiary-fixed-variant": "#733500",
+                        "on-tertiary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#001c3a",
+                        "surface-container": "#eceef6"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "PingFang SC", "Noto Sans SC"],
+                        "body": ["Inter", "PingFang SC", "Noto Sans SC"],
+                        "label": ["Inter", "PingFang SC", "Noto Sans SC"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #005DAA 0%, #0075D5 100%);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C0C7D4;
+            border-radius: 10px;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(600px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed antialiased overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 shadow-sm bg-[#F7F9FC] flex items-center justify-between px-4 py-3">
+<div class="flex items-center gap-3">
+<button class="text-[#005DAA] active:opacity-70 transition-opacity duration-150">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-['PingFang_SC','Inter'] text-base font-semibold tracking-tight text-[#005DAA]">正在盘点...</h1>
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+<span class="text-[10px] font-bold text-error uppercase tracking-wider">RFID 扫描中</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-[#005DAA] active:opacity-70 transition-opacity duration-150">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-hidden flex flex-col px-4 pt-4 pb-24 gap-4 max-w-2xl mx-auto w-full">
+<!-- Simplified Header Area -->
+<section class="flex flex-col items-center">
+<div class="text-center">
+<span class="block text-[11px] font-bold text-on-surface-variant tracking-[0.2em] uppercase mb-1">已扫描标签总数</span>
+<div class="text-6xl font-black leading-tight bg-clip-text text-transparent bg-primary-gradient tabular-nums">
+                    1,284
+                </div>
+</div>
+<!-- Signal Strength Indicator (Compact) -->
+<div class="mt-2 flex items-center gap-2">
+<div class="flex gap-0.5 items-end h-4">
+<div class="w-1.5 h-1.5 rounded-t-sm bg-primary"></div>
+<div class="w-1.5 h-2.5 rounded-t-sm bg-primary"></div>
+<div class="w-1.5 h-3.5 rounded-t-sm bg-primary"></div>
+<div class="w-1.5 h-4 rounded-t-sm bg-primary"></div>
+<div class="w-1.5 h-2.5 rounded-t-sm bg-primary-fixed"></div>
+</div>
+<span class="text-[11px] font-bold text-secondary">信号强度: 85%</span>
+</div>
+</section>
+<!-- Real-time Scrolling List Section (Starts Higher Up) -->
+<section class="flex-1 flex flex-col bg-surface-container-low rounded-xl overflow-hidden shadow-sm border border-outline-variant/10">
+<div class="px-4 py-2.5 bg-surface-container-high flex justify-between items-center">
+<span class="text-[10px] font-bold text-on-surface-variant tracking-wider uppercase">实时 EPC 数据流</span>
+<span class="text-[10px] font-medium text-secondary">自动滚动开启</span>
+</div>
+<div class="flex-1 overflow-y-auto px-1">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-surface-container-low z-20">
+<tr class="text-[11px] font-bold text-on-surface-variant border-b border-outline-variant/20">
+<th class="px-3 py-2">EPC 编码 / 资产信息</th>
+<th class="px-3 py-2 text-right">RSSI</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-bright transition-colors">
+<td class="px-3 py-2">
+<div class="flex flex-col">
+<span class="font-mono text-xs text-primary font-medium">E2801191200072E3</span>
+<span class="text-[10px] text-on-surface-variant">精密激光切割机 - A01</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right text-xs text-secondary">-64dBm</td>
+</tr>
+<tr class="bg-primary-fixed/20">
+<td class="px-3 py-2">
+<div class="flex flex-col">
+<span class="font-mono text-xs text-primary font-medium">E200001928120152</span>
+<span class="text-[10px] text-on-surface-variant">移动工作站 - Pro 14</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right text-xs text-secondary">-58dBm</td>
+</tr>
+<tr>
+<td class="px-3 py-2">
+<div class="flex flex-col">
+<span class="font-mono text-xs text-primary font-medium">E280116060000209</span>
+<span class="text-[10px] text-on-surface-variant">工业级路由器 Node-X</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right text-xs text-secondary">-71dBm</td>
+</tr>
+<tr>
+<td class="px-3 py-2">
+<div class="flex flex-col">
+<span class="font-mono text-xs text-primary font-medium">E280689400005004</span>
+<span class="text-[10px] text-on-surface-variant">高压测试平台</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right text-xs text-secondary">-82dBm</td>
+</tr>
+<tr>
+<td class="px-3 py-2">
+<div class="flex flex-col">
+<span class="font-mono text-xs text-primary font-medium">E2004075130D0264</span>
+<span class="text-[10px] text-on-surface-variant">恒温培养箱</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right text-xs text-secondary">-60dBm</td>
+</tr>
+<tr>
+<td class="px-3 py-2">
+<div class="flex flex-col">
+<span class="font-mono text-xs text-primary font-medium">E28011702000B932</span>
+<span class="text-[10px] text-on-surface-variant">手持示波器</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right text-xs text-secondary">-88dBm</td>
+</tr>
+<tr>
+<td class="px-3 py-2">
+<div class="flex flex-col">
+<span class="font-mono text-xs text-primary font-medium">E280110520006321</span>
+<span class="text-[10px] text-on-surface-variant">自动化机械臂 - R2</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right text-xs text-secondary">-55dBm</td>
+</tr>
+<tr>
+<td class="px-3 py-2">
+<div class="flex flex-col">
+<span class="font-mono text-xs text-primary font-medium">E2801191200072E8</span>
+<span class="text-[10px] text-on-surface-variant">智能货架感应器</span>
+</div>
+</td>
+<td class="px-3 py-2 text-right text-xs text-secondary">-74dBm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- Bottom Actions Container -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-surface/80 backdrop-blur-md z-40 border-t border-outline-variant/10">
+<div class="max-w-2xl mx-auto flex gap-3">
+<button class="flex-1 py-3 px-4 rounded-lg bg-surface-container-highest text-on-surface-variant font-bold text-sm flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="pause_circle">pause_circle</span>
+                暂停盘点
+            </button>
+<button class="flex-[1.5] py-3 px-4 rounded-lg bg-primary-gradient text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-lg" data-icon="check_circle">check_circle</span>
+                完成并查看结果
+            </button>
+</div>
+</div>
+</body></html>

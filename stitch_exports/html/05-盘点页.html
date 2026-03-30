@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#2d3133",
+              "primary-fixed": "#d4e3ff",
+              "on-primary-container": "#fefcff",
+              "surface-bright": "#f7f9fc",
+              "error": "#ba1a1a",
+              "surface-container": "#eceef1",
+              "on-surface-variant": "#404753",
+              "surface-container-high": "#e6e8eb",
+              "background": "#f7f9fc",
+              "surface": "#f7f9fc",
+              "tertiary-container": "#b95a00",
+              "on-primary-fixed-variant": "#004785",
+              "on-primary-fixed": "#001c3a",
+              "secondary-fixed": "#d4e3ff",
+              "primary-fixed-dim": "#a5c8ff",
+              "outline-variant": "#c0c7d6",
+              "on-secondary-container": "#385782",
+              "secondary-fixed-dim": "#a9c8f9",
+              "on-tertiary-container": "#fffbff",
+              "on-primary": "#ffffff",
+              "inverse-primary": "#a5c8ff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#eff1f4",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#afceff",
+              "on-tertiary-fixed-variant": "#733600",
+              "on-secondary": "#ffffff",
+              "primary-container": "#0075d5",
+              "primary": "#005daa",
+              "surface-container-highest": "#e0e3e6",
+              "outline": "#707785",
+              "on-surface": "#191c1e",
+              "tertiary": "#934600",
+              "tertiary-fixed": "#ffdbc7",
+              "on-error": "#ffffff",
+              "surface-variant": "#e0e3e6",
+              "on-secondary-fixed-variant": "#274871",
+              "on-error-container": "#93000a",
+              "surface-container-low": "#f2f4f7",
+              "on-tertiary": "#ffffff",
+              "on-background": "#191c1e",
+              "on-secondary-fixed": "#001c3a",
+              "secondary": "#40608b",
+              "tertiary-fixed-dim": "#ffb688",
+              "surface-tint": "#005fae",
+              "surface-dim": "#d8dadd",
+              "on-tertiary-fixed": "#311300"
+            },
+            fontFamily: {
+              "headline": ["Inter", "PingFang SC", "Noto Sans SC"],
+              "body": ["Inter", "PingFang SC", "Noto Sans SC"],
+              "label": ["Inter", "PingFang SC", "Noto Sans SC"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'PingFang SC', 'Inter', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 flex items-center justify-between px-4 py-3 bg-gradient-to-r from-[#005DAA] to-[#0075D5]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-primary" data-icon="inventory_2">inventory_2</span>
+<h1 class="text-lg font-bold text-on-primary tracking-tight">资产管理系统</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="active:opacity-80 transition-all duration-150">
+<span class="material-symbols-outlined text-on-primary" data-icon="search">search</span>
+</button>
+<button class="active:opacity-80 transition-all duration-150">
+<span class="material-symbols-outlined text-on-primary" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="flex flex-col gap-4 p-4">
+<!-- Top Statistics Bar: Bento Style -->
+<section class="grid grid-cols-3 gap-3">
+<div class="bg-surface-container-lowest p-3 rounded-xl flex flex-col items-center justify-center shadow-[0px_4px_20px_0px_rgba(0,93,170,0.06)]">
+<span class="text-primary text-2xl font-bold tracking-tighter">1,284</span>
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">资产总数</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl flex flex-col items-center justify-center shadow-[0px_4px_20px_0px_rgba(0,93,170,0.06)]">
+<span class="text-emerald-600 text-2xl font-bold tracking-tighter">842</span>
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">已盘</span>
+</div>
+<div class="bg-surface-container-lowest p-3 rounded-xl flex flex-col items-center justify-center shadow-[0px_4px_20px_0px_rgba(0,93,170,0.06)] border-l-4 border-tertiary">
+<span class="text-tertiary text-2xl font-bold tracking-tighter">442</span>
+<span class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">待盘</span>
+</div>
+</section>
+<!-- Search & Filter Row -->
+<section class="flex gap-2">
+<div class="relative flex-grow">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-9 pr-4 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-outline" placeholder="输入资产名称或编号查询" type="text"/>
+</div>
+<button class="bg-surface-container-low p-2 rounded-lg flex items-center justify-center active:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="filter_list">filter_list</span>
+</button>
+</section><section class="grid grid-cols-3 gap-2 px-1">
+<button class="flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-lg text-sm text-on-surface-variant active:bg-surface-container-high transition-colors">
+<span class="font-medium">部门</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+<button class="flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-lg text-sm text-on-surface-variant active:bg-surface-container-high transition-colors">
+<span class="font-medium">分类</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+<button class="flex items-center justify-between bg-surface-container-low px-3 py-2 rounded-lg text-sm text-on-surface-variant active:bg-surface-container-high transition-colors">
+<span class="font-medium">状态</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+</section>
+<!-- Action Buttons -->
+<section class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-xl shadow-lg active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+<span class="font-bold">RFID 盘点</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-4 bg-surface-container-lowest text-primary border border-primary/20 rounded-xl shadow-sm active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-bold">手动盘点</span>
+</button>
+</section>
+<!-- Inventory List Header -->
+<div class="flex items-center justify-between px-1">
+<h2 class="text-sm font-bold text-on-surface flex items-center gap-1">
+<span class="w-1 h-4 bg-primary rounded-full"></span>
+                待盘点清单
+            </h2>
+<span class="text-[11px] text-on-surface-variant">共 442 项</span>
+</div>
+<!-- Inventory List -->
+<section class="flex flex-col gap-3">
+<!-- Asset Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 relative overflow-hidden shadow-[0px_4px_12px_rgba(0,0,0,0.03)] group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-on-surface font-bold text-sm">精密服务器集群 X7</h3>
+<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded font-bold">待盘点</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant font-bold leading-tight">资产编码</span>
+<span class="text-sm font-mono text-on-surface">SH-IT-2023-08812</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant font-bold leading-tight">资产编码</span>
+<span class="text-sm font-mono text-on-surface">E280 1160 6000 020B 6172 04C2</span>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-outline-variant/10 flex justify-between items-center">
+<div class="flex items-center gap-1 text-[11px] text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span>上海中心仓库 - A区12排</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-active:text-primary transition-colors" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Asset Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 relative overflow-hidden shadow-[0px_4px_12px_rgba(0,0,0,0.03)] group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-emerald-500"></div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-on-surface font-bold text-sm">工业级路由器 R-400</h3>
+<span class="bg-emerald-50 text-emerald-600 text-[10px] px-2 py-0.5 rounded font-bold">已盘点</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant font-bold leading-tight">资产编码</span>
+<span class="text-sm font-mono text-on-surface">SH-IT-2023-08945</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant font-bold leading-tight">资产编码</span>
+<span class="text-sm font-mono text-on-surface">E280 1160 6000 020B 6172 09A4</span>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-outline-variant/10 flex justify-between items-center">
+<div class="flex items-center gap-1 text-[11px] text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span>上海中心仓库 - B区03排</span>
+</div>
+<span class="material-symbols-outlined text-emerald-500" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Asset Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-4 relative overflow-hidden shadow-[0px_4px_12px_rgba(0,0,0,0.03)] group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-on-surface font-bold text-sm">手持终端 PDA-V5</h3>
+<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded font-bold">待盘点</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant font-bold leading-tight">资产编码</span>
+<span class="text-sm font-mono text-on-surface">SH-IT-2023-09012</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant font-bold leading-tight">资产编码</span>
+<span class="text-sm font-mono text-on-surface">E280 1160 6000 020B 6172 10C5</span>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-outline-variant/10 flex justify-between items-center">
+<div class="flex items-center gap-1 text-[11px] text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span>上海中心仓库 - A区01排</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Asset Card 4 (Image integration) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_12px_rgba(0,0,0,0.03)]">
+<div class="relative h-24">
+<img alt="Server Hardware" class="w-full h-full object-cover grayscale opacity-30" data-alt="Close-up of server rack hardware components with blue status LEDs in a high-tech data center environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnz6mGAxmrzRU-yVbst95V4BXm4Dz7v7OgzgYUPeurG85oCeDHR3uf8XDyFIxok0x0uWqvY034NFwVJBcHY0AZXayLneqL1SA7kcyHPxfKPiHiyhCULCOepI7Q0nZToVxubATBZWAcV4BWOb1RA728Gg__wFznevGhr_NjRaPYcsrFe_H2puLlo4hDnkwHYoZRHRwcazZBp7w6EYzESCOSEXOWxtchF3pBOoJvSXdqi4aT8dr4DOFUu00Fwz5aMY9hWewXUCdxDxnE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+<div class="absolute bottom-2 left-4">
+<span class="bg-primary text-on-primary text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-tighter">新录入</span>
+</div>
+</div>
+<div class="p-4 pt-0">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-on-surface font-bold text-sm">备份存储单元 S-02</h3>
+<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded font-bold">待盘点</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex flex-col">
+<span class="text-[10px] text-on-surface-variant font-bold leading-tight">资产编码</span>
+<span class="text-sm font-mono text-on-surface">SH-IT-2023-11204</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-safe pt-2 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-[#C0C7D6]/15 shadow-[0_-4px_20px_0px_rgba(0,93,170,0.04)] z-50 rounded-t-lg">
+<a class="flex flex-col items-center justify-center text-[#404753] dark:text-slate-500 opacity-70 hover:text-[#005DAA] dark:hover:text-blue-300 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['PingFang_SC'] text-[0.6875rem] font-bold tracking-tight">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#404753] dark:text-slate-500 opacity-70 hover:text-[#005DAA] dark:hover:text-blue-300 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-['PingFang_SC'] text-[0.6875rem] font-bold tracking-tight">资产</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#005DAA] dark:text-blue-400 scale-105 transition-transform active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner" style="font-variation-settings: 'FILL' 1;">qr_code_scanner</span>
+<span class="font-['PingFang_SC'] text-[0.6875rem] font-bold tracking-tight">盘点</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#404753] dark:text-slate-500 opacity-70 hover:text-[#005DAA] dark:hover:text-blue-300 active:scale-95 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['PingFang_SC'] text-[0.6875rem] font-bold tracking-tight">系统</span>
+</a>
+</nav>
+<!-- RFID Scanning HUD (Contextual Component) -->
+<div class="hidden fixed bottom-24 right-4 z-30">
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl p-4 rounded-2xl shadow-2xl border border-primary/10 flex items-center gap-4">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant">正在扫描...</span>
+<span class="text-3xl font-headline font-bold text-primary">124</span>
+</div>
+<div class="flex items-end gap-1 h-10">
+<div class="w-1.5 bg-primary rounded-full h-2"></div>
+<div class="w-1.5 bg-primary rounded-full h-4"></div>
+<div class="w-1.5 bg-primary rounded-full h-8"></div>
+<div class="w-1.5 bg-primary rounded-full h-6"></div>
+<div class="w-1.5 bg-outline-variant rounded-full h-3"></div>
+</div>
+</div>
+</div>
+</body></html>

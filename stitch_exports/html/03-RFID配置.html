@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface": "#f9f9ff",
+              "on-secondary-fixed": "#001c3a",
+              "background": "#f9f9ff",
+              "secondary": "#466084",
+              "surface-container-lowest": "#ffffff",
+              "outline-variant": "#c0c7d4",
+              "outline": "#717784",
+              "surface-variant": "#e0e2ea",
+              "surface-tint": "#005fad",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#aec8f2",
+              "tertiary-fixed-dim": "#ffb688",
+              "primary": "#005da9",
+              "on-secondary": "#ffffff",
+              "surface-container": "#eceef6",
+              "inverse-on-surface": "#eef0f9",
+              "primary-fixed-dim": "#a5c8ff",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#181c22",
+              "on-error-container": "#93000a",
+              "error": "#ba1a1a",
+              "surface-bright": "#f9f9ff",
+              "on-tertiary-fixed-variant": "#733500",
+              "inverse-surface": "#2d3037",
+              "surface-container-high": "#e6e8f0",
+              "on-primary-fixed": "#001c3a",
+              "on-surface-variant": "#414752",
+              "secondary-container": "#b9d3fe",
+              "surface-dim": "#d8dae2",
+              "primary-container": "#0376d3",
+              "on-secondary-container": "#415b7f",
+              "on-background": "#181c22",
+              "secondary-fixed": "#d4e3ff",
+              "on-tertiary-fixed": "#311300",
+              "surface-container-highest": "#e0e2ea",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#fefcff",
+              "error-container": "#ffdad6",
+              "on-tertiary-container": "#fffbff",
+              "on-secondary-fixed-variant": "#2d486b",
+              "tertiary-container": "#b95a00",
+              "inverse-primary": "#a5c8ff",
+              "tertiary-fixed": "#ffdbc7",
+              "tertiary": "#934600",
+              "primary-fixed": "#d4e3ff",
+              "on-primary-fixed-variant": "#004784",
+              "surface-container-low": "#f1f3fc"
+            },
+            fontFamily: {
+              "headline": ["Inter", "Noto Sans SC"],
+              "body": ["Inter", "Noto Sans SC"],
+              "label": ["Inter", "Noto Sans SC"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', 'PingFang SC', 'Noto Sans SC', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-icon { font-variation-settings: 'FILL' 1; }
+        .tech-gradient { background: linear-gradient(135deg, #005DAA 0%, #0075D5 100%); }
+        /* Smooth scrolling for the result list */
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c0c7d4; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-[#F7F9FC] dark:bg-slate-900 flex items-center justify-between px-4 h-14 transition-colors duration-200 border-b border-outline-variant/10">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center w-8 h-8 rounded-full hover:bg-black/5 active:opacity-70">
+<span class="material-symbols-outlined text-[#005DAA]">arrow_back</span>
+</button>
+<h1 class="font-['PingFang_SC','Inter'] text-base font-semibold text-[#191C1E] dark:text-slate-100">RFID 配置</h1>
+</div>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-[#404753] text-xl">more_vert</span>
+</div>
+</header>
+<main class="px-4 py-4 space-y-4 flex flex-col h-[calc(100vh-3.5rem)]">
+<!-- Section 1: Connection Settings -->
+<section class="shrink-0">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-wider px-1">连接设置</h2>
+<span class="text-[10px] text-primary font-medium bg-primary-fixed px-2 py-0.5 rounded-full">当前状态: 运行中</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- USB Connection Card -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-[0px_4px_20px_0px_rgba(0,93,170,0.04)] border-l-4 border-primary relative overflow-hidden">
+<div class="flex justify-between items-start mb-3">
+<div class="bg-primary-fixed p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-primary text-xl">usb</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-on-surface-variant font-medium">直连模式</span>
+<span class="text-[11px] text-primary font-bold">已连接</span>
+</div>
+</div>
+<button class="w-full py-1.5 bg-surface-container-low text-on-surface-variant text-xs font-semibold rounded-lg active:scale-95 transition-transform">
+                        断开连接
+                    </button>
+</div>
+<!-- Bluetooth Connection Card -->
+<div class="bg-surface-container-lowest p-3 rounded-xl shadow-[0px_4px_20px_0px_rgba(0,93,170,0.04)] border-l-4 border-outline-variant/30 relative overflow-hidden">
+<div class="flex justify-between items-start mb-3">
+<div class="bg-surface-container-low p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-outline text-xl">bluetooth</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-on-surface-variant font-medium">蓝牙模式</span>
+<span class="text-[11px] text-outline font-bold">未连接</span>
+</div>
+</div>
+<button class="w-full py-1.5 tech-gradient text-white text-xs font-semibold rounded-lg shadow-sm active:scale-95 transition-transform">
+                        开始搜索
+                    </button>
+</div>
+</div>
+</section>
+<!-- Section 2: Power Configuration -->
+<section class="bg-surface-container-lowest p-4 rounded-xl shadow-[0px_4px_20px_0px_rgba(0,93,170,0.04)] shrink-0">
+<h2 class="text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-wider mb-4">功率配置 (RF Power)</h2>
+<div class="space-y-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-sm font-medium text-on-surface">发射功率</span>
+<span class="text-[10px] text-on-surface-variant bg-surface-container-low px-2 py-0.5 rounded">范围: 5-30</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-lg font-bold text-primary">28</span>
+<span class="text-[10px] text-on-surface-variant font-bold mt-1">dBm</span>
+</div>
+</div>
+<!-- Custom Slider -->
+<div class="relative h-6 flex items-center">
+<div class="absolute w-full h-1.5 bg-surface-container rounded-full"></div>
+<div class="absolute h-1.5 bg-primary rounded-full" style="width: 85%;"></div>
+<div class="absolute w-5 h-5 bg-white border-2 border-primary rounded-full shadow-md left-[85%] -translate-x-1/2 flex items-center justify-center">
+<div class="w-1.5 h-1.5 bg-primary rounded-full"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-1">
+<button class="flex items-center justify-center gap-2 py-2 border border-outline-variant/30 text-on-surface-variant text-sm font-semibold rounded-lg hover:bg-surface-container-low active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">sync_alt</span>
+                        查询参数
+                    </button>
+<button class="flex items-center justify-center gap-2 py-2 tech-gradient text-white text-sm font-semibold rounded-lg shadow-md active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">save</span>
+                        保存设置
+                    </button>
+</div>
+</div>
+</section>
+<!-- Section 3: Read/Write Operations -->
+<section class="flex flex-col flex-grow min-h-0 overflow-hidden">
+<div class="flex items-center justify-between mb-2">
+<h2 class="text-[0.6875rem] font-bold text-on-surface-variant uppercase tracking-wider px-1">读写操作区</h2>
+<div class="flex gap-2">
+<button class="text-[10px] font-bold text-error bg-error-container/20 px-2 py-1 rounded">清空记录</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 mb-3 shrink-0">
+<button class="flex items-center justify-center gap-2 py-2.5 bg-secondary-fixed text-on-secondary-fixed text-sm font-bold rounded-xl active:scale-95 transition-all">
+<span class="material-symbols-outlined text-xl">sensors_off</span>
+                    单次读取
+                </button>
+<button class="flex items-center justify-center gap-2 py-2.5 tech-gradient text-white text-sm font-bold rounded-xl shadow-lg shadow-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-xl">radar</span>
+                    批量读取
+                </button>
+</div>
+<!-- Result Area -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden flex flex-col flex-grow">
+<div class="grid grid-cols-12 gap-2 px-4 py-2 bg-surface-container-highest/50 border-b border-outline-variant/10 shrink-0">
+<div class="col-span-8 text-[10px] font-bold text-on-surface-variant uppercase">EPC 编码 (16进制)</div>
+<div class="col-span-2 text-[10px] font-bold text-on-surface-variant text-center uppercase">强度</div>
+<div class="col-span-2 text-[10px] font-bold text-on-surface-variant text-right uppercase">计数</div>
+</div>
+<div class="overflow-y-auto flex-grow custom-scrollbar">
+<!-- Data Row 1 -->
+<div class="grid grid-cols-12 gap-2 px-4 py-3 bg-white border-b border-surface-container items-center">
+<div class="col-span-8">
+<code class="text-xs font-bold text-on-surface block truncate">E280 1170 2000 0751 602A</code>
+<span class="text-[9px] text-on-surface-variant">类型: Gen2 / S-Asset-01</span>
+</div>
+<div class="col-span-2 text-center">
+<span class="text-xs font-mono text-primary font-bold">-64</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant font-mono">12</span>
+</div>
+</div>
+<!-- Data Row 2 -->
+<div class="grid grid-cols-12 gap-2 px-4 py-3 bg-white border-b border-surface-container items-center">
+<div class="col-span-8">
+<code class="text-xs font-bold text-on-surface block truncate">E280 1170 2000 0751 603F</code>
+<span class="text-[9px] text-on-surface-variant">类型: Gen2 / S-Asset-02</span>
+</div>
+<div class="col-span-2 text-center">
+<span class="text-xs font-mono text-tertiary font-bold">-72</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant font-mono">08</span>
+</div>
+</div>
+<!-- Data Row 3 -->
+<div class="grid grid-cols-12 gap-2 px-4 py-3 bg-white border-b border-surface-container items-center">
+<div class="col-span-8">
+<code class="text-xs font-bold text-on-surface block truncate">3008 FB4B 1203 1400 0000</code>
+<span class="text-[9px] text-on-surface-variant">类型: Alien / Pallet-B</span>
+</div>
+<div class="col-span-2 text-center">
+<span class="text-xs font-mono text-primary font-bold">-58</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant font-mono">45</span>
+</div>
+</div>
+<!-- Data Row 4 (Added for demo of extra space) -->
+<div class="grid grid-cols-12 gap-2 px-4 py-3 bg-white border-b border-surface-container items-center">
+<div class="col-span-8">
+<code class="text-xs font-bold text-on-surface block truncate">E280 1170 2000 0751 91AC</code>
+<span class="text-[9px] text-on-surface-variant">类型: Gen2 / S-Asset-03</span>
+</div>
+<div class="col-span-2 text-center">
+<span class="text-xs font-mono text-primary font-bold">-61</span>
+</div>
+<div class="col-span-2 text-right">
+<span class="text-xs bg-surface-container px-1.5 py-0.5 rounded text-on-surface-variant font-mono">03</span>
+</div>
+</div>
+</div>
+<div class="px-4 py-2 flex items-center justify-between bg-surface-container-high/30 shrink-0">
+<span class="text-[10px] text-on-surface-variant">累计标签: <b class="text-primary">24</b></span>
+<span class="text-[10px] text-on-surface-variant italic">扫描速率: 124 标签/秒</span>
+</div>
+</div>
+</section>
+</main>
+</body></html>

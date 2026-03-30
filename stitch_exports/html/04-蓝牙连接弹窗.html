@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#004784",
+              "on-surface-variant": "#414752",
+              "inverse-on-surface": "#eef0f9",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed": "#ffdbc7",
+              "surface-container": "#eceef6",
+              "on-background": "#181c22",
+              "inverse-primary": "#a5c8ff",
+              "primary-fixed": "#d4e3ff",
+              "tertiary-container": "#b95a00",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#f9f9ff",
+              "on-primary": "#ffffff",
+              "inverse-surface": "#2d3037",
+              "surface-dim": "#d8dae2",
+              "outline-variant": "#c0c7d4",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#005fad",
+              "on-secondary-container": "#415b7f",
+              "error-container": "#ffdad6",
+              "surface-container-high": "#e6e8f0",
+              "on-secondary-fixed-variant": "#2d486b",
+              "on-secondary-fixed": "#001c3a",
+              "surface-bright": "#f9f9ff",
+              "secondary-container": "#b9d3fe",
+              "secondary": "#466084",
+              "on-tertiary-container": "#fffbff",
+              "secondary-fixed-dim": "#aec8f2",
+              "on-surface": "#181c22",
+              "background": "#f9f9ff",
+              "on-primary-container": "#fefcff",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed": "#311300",
+              "secondary-fixed": "#d4e3ff",
+              "primary": "#005da9",
+              "primary-fixed-dim": "#a5c8ff",
+              "on-tertiary-fixed-variant": "#733500",
+              "surface-container-low": "#f1f3fc",
+              "tertiary-fixed-dim": "#ffb688",
+              "outline": "#717784",
+              "surface-container-highest": "#e0e2ea",
+              "primary-container": "#0376d3",
+              "on-error-container": "#93000a",
+              "tertiary": "#934600",
+              "surface-variant": "#e0e2ea",
+              "on-primary-fixed": "#001c3a",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Inter", "Noto Sans SC"],
+              "body": ["Inter", "Noto Sans SC"],
+              "label": ["Inter", "Noto Sans SC"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-tech-gradient {
+            background: linear-gradient(135deg, #005DAA 0%, #0075D5 100%);
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 2s linear infinite;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-hidden">
+<!-- Background Content: RFID Configuration Screen (Blurred) -->
+<div class="fixed inset-0 flex flex-col filter blur-md grayscale-[0.2] opacity-60 pointer-events-none">
+<!-- TopAppBar Placeholder -->
+<header class="w-full top-0 sticky flex items-center px-4 h-16 w-full bg-[#F7F9FC] dark:bg-slate-900">
+<span class="material-symbols-outlined text-[#005DAA] mr-4" data-icon="arrow_back">arrow_back</span>
+<h1 class="font-semibold text-lg text-[#005DAA]">RFID 配置</h1>
+</header>
+<!-- Mock Content -->
+<main class="flex-1 p-4 space-y-4">
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant/15">
+<div class="h-4 w-24 bg-surface-container-highest rounded mb-4"></div>
+<div class="space-y-3">
+<div class="h-12 w-full bg-surface-container rounded-lg"></div>
+<div class="h-12 w-full bg-surface-container rounded-lg"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant/15">
+<div class="h-4 w-32 bg-surface-container-highest rounded mb-4"></div>
+<div class="grid grid-cols-2 gap-3">
+<div class="h-20 bg-surface-container rounded-lg"></div>
+<div class="h-20 bg-surface-container rounded-lg"></div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Placeholder -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pt-2 pb-6 px-2 bg-white/80 border-t border-[#C0C7D6]/15">
+<div class="flex flex-col items-center text-[#404753]"><span class="material-symbols-outlined" data-icon="home">home</span><span class="text-[10px]">首页</span></div>
+<div class="flex flex-col items-center text-[#404753]"><span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span><span class="text-[10px]">资产</span></div>
+<div class="flex flex-col items-center text-[#404753]"><span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span><span class="text-[10px]">盘点</span></div>
+<div class="flex flex-col items-center text-[#005DAA] bg-[#D4E3FF] rounded-2xl px-5 py-1"><span class="material-symbols-outlined" data-icon="settings">settings</span><span class="text-[10px]">系统</span></div>
+</nav>
+</div>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4">
+<!-- Bottom Sheet / Modal Container -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-t-3xl sm:rounded-3xl shadow-[0px_4px_20px_0px_rgba(0,93,170,0.15)] flex flex-col overflow-hidden">
+<!-- Handle for mobile -->
+<div class="w-full flex justify-center pt-3 pb-1 sm:hidden">
+<div class="w-10 h-1 bg-outline-variant/40 rounded-full"></div>
+</div>
+<!-- Header -->
+<div class="px-6 py-4 flex items-center justify-between border-b border-outline-variant/10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="bluetooth">bluetooth</span>
+</div>
+<div>
+<h2 class="text-on-surface font-bold text-lg leading-tight">选择蓝牙设备</h2>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary animate-spin-slow" data-icon="sync">sync</span>
+<span class="text-[11px] font-bold text-primary tracking-wider uppercase">Scanning...</span>
+</div>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="close">close</span>
+</button>
+</div>
+<!-- Device List Section -->
+<div class="flex-1 overflow-y-auto max-h-[530px] px-4 py-4 space-y-2">
+<!-- Device 1 -->
+<div class="group relative flex items-center p-3 rounded-xl hover:bg-surface-container-low transition-all duration-200 cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full scale-y-0 group-hover:scale-y-100 transition-transform"></div>
+<div class="flex-1 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="settings_input_antenna">settings_input_antenna</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-semibold text-on-surface">RFID-Reader-702</span>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt" style="font-variation-settings: 'FILL' 1;">signal_cellular_alt</span>
+<span class="text-[10px] font-bold">-42 dBm</span>
+</div>
+</div>
+<span class="text-xs text-on-surface-variant font-mono">MAC: 00:1A:7D:DA:71:02</span>
+</div>
+</div>
+<button class="ml-4 px-4 py-1.5 rounded-lg text-xs font-bold text-primary border border-primary/20 hover:bg-primary-fixed transition-colors">
+                        连接
+                    </button>
+</div>
+<!-- Device 2 -->
+<div class="group relative flex items-center p-3 rounded-xl hover:bg-surface-container-low transition-all duration-200 cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full scale-y-0 group-hover:scale-y-100 transition-transform"></div>
+<div class="flex-1 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="barcode_scanner">barcode_scanner</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-semibold text-on-surface">HH-Scanner-A1</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt_2_bar" style="font-variation-settings: 'FILL' 1;">signal_cellular_alt_2_bar</span>
+<span class="text-[10px] font-bold">-68 dBm</span>
+</div>
+</div>
+<span class="text-xs text-on-surface-variant font-mono">MAC: E4:95:6E:40:AA:11</span>
+</div>
+</div>
+<button class="ml-4 px-4 py-1.5 rounded-lg text-xs font-bold text-primary border border-primary/20 hover:bg-primary-fixed transition-colors">
+                        连接
+                    </button>
+</div>
+<!-- Device 3 -->
+<div class="group relative flex items-center p-3 rounded-xl hover:bg-surface-container-low transition-all duration-200 cursor-pointer border border-transparent hover:border-outline-variant/20">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full scale-y-0 group-hover:scale-y-100 transition-transform"></div>
+<div class="flex-1 flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="nfc">nfc</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="font-semibold text-on-surface">Sino-Reader-X9</span>
+<div class="flex items-center gap-1 text-on-surface-variant/40">
+<span class="material-symbols-outlined text-sm" data-icon="signal_cellular_alt_1_bar" style="font-variation-settings: 'FILL' 1;">signal_cellular_alt_1_bar</span>
+<span class="text-[10px] font-bold">-85 dBm</span>
+</div>
+</div>
+<span class="text-xs text-on-surface-variant font-mono">MAC: FC:B4:67:88:99:X9</span>
+</div>
+</div>
+<button class="ml-4 px-4 py-1.5 rounded-lg text-xs font-bold text-primary border border-primary/20 hover:bg-primary-fixed transition-colors">
+                        连接
+                    </button>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="p-6 bg-surface-container-low/30 border-t border-outline-variant/10 flex flex-col gap-3">
+<button class="w-full h-12 bg-tech-gradient text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="refresh">refresh</span>
+                    重新扫描
+                </button>
+<button class="w-full h-12 bg-transparent text-on-surface font-semibold rounded-xl flex items-center justify-center hover:bg-surface-container-high transition-colors">
+                    取消连接
+                </button>
+</div>
+<!-- Safe Area Bottom (Mobile) -->
+<div class="h-safe sm:hidden"></div>
+</div>
+</div>
+</body></html>

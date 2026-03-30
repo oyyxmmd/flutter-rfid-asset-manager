@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>资产管理中心 - Sino-Asset Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e6e8eb",
+                        "tertiary-fixed-dim": "#ffb688",
+                        "secondary-fixed-dim": "#a9c8f9",
+                        "on-primary-fixed": "#001c3a",
+                        "inverse-primary": "#a5c8ff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#274871",
+                        "on-primary-fixed-variant": "#004785",
+                        "surface-dim": "#d8dadd",
+                        "secondary-container": "#afceff",
+                        "outline-variant": "#c0c7d6",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-fixed-variant": "#733600",
+                        "inverse-on-surface": "#eff1f4",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e0e3e6",
+                        "background": "#f7f9fc",
+                        "primary-fixed-dim": "#a5c8ff",
+                        "on-tertiary-container": "#fffbff",
+                        "secondary": "#40608b",
+                        "on-tertiary-fixed": "#311300",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#005fae",
+                        "on-surface-variant": "#404753",
+                        "surface-container": "#eceef1",
+                        "tertiary-fixed": "#ffdbc7",
+                        "secondary-fixed": "#d4e3ff",
+                        "outline": "#707785",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e6",
+                        "surface-container-low": "#f2f4f7",
+                        "on-background": "#191c1e",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#b95a00",
+                        "on-primary-container": "#fefcff",
+                        "tertiary": "#934600",
+                        "primary": "#005daa",
+                        "on-secondary-container": "#385782",
+                        "inverse-surface": "#2d3133",
+                        "primary-fixed": "#d4e3ff",
+                        "primary-container": "#0075d5",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f7f9fc",
+                        "surface": "#f7f9fc",
+                        "on-secondary-fixed": "#001c3a"
+                    },
+                    fontFamily: {
+                        "headline": ["PingFang SC", "Inter", "sans-serif"],
+                        "body": ["PingFang SC", "Inter", "sans-serif"],
+                        "label": ["PingFang SC", "Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            font-family: 'PingFang SC', 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        .tech-gradient {
+            background: linear-gradient(135deg, #005DAA 0%, #0075D5 100%);
+        }
+        .chart-ring {
+            stroke-dasharray: 251.2;
+            transition: stroke-dashoffset 0.6s ease;
+        }
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen pb-24 overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-[#F7F9FC]/90 backdrop-blur-md dark:bg-slate-900/90 flex justify-between items-center w-full px-4 py-3 border-b border-outline-variant/10">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full overflow-hidden border-2 border-primary-fixed flex-shrink-0">
+<img alt="用户头像" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHy4YxQyOYJdpXQ0OWu8jSVCS3SCIBc5debBNkdl6H7nC3dRn7vfVRtTsQ0MoZPTc8xj3hFn0sNQOac3C14AbsXwGSjbYb4WNsk5B516HPQnV54GTIDNcPixtXdZUHMlq05Y_DNSUH-3lRkhL9HRwIDQvLLN28AdQK6RCk2RFuihTSm37qJpFoMJhM0A6VTyrY3RZmoxdYerDGi7I0jnokS3gKzzeU_wl7ugW8ECgENXK56z0K5Vpja8S-do2ua7v3dDco_HokCO25"/>
+</div>
+<h1 class="font-headline text-lg font-semibold tracking-tight text-[#005DAA] dark:text-blue-400 truncate">资产管理中心</h1>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-[#F2F4F7] dark:hover:bg-slate-800 transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-[#404753] dark:text-slate-400">search</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-[#F2F4F7] dark:hover:bg-slate-800 transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-[#404753] dark:text-slate-400">notifications</span>
+</button>
+</div>
+</header>
+<main class="px-4 py-4 space-y-6 max-w-md mx-auto w-full box-border">
+<!-- Inventory Statistics Section (Responsive Ring Chart) -->
+<section class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="flex items-center justify-between mb-5">
+<h3 class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">盘点统计</h3>
+<span class="text-[10px] px-2 py-0.5 bg-primary-container/20 text-primary rounded-full font-medium">实时更新</span>
+</div>
+<div class="flex flex-row items-center justify-center gap-4 sm:gap-8">
+<!-- Compact Ring Chart - Centered in container -->
+<div class="relative flex-shrink-0 w-24 h-24">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface-container-high" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-primary chart-ring" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="45.2" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-xl font-bold text-primary">82%</span>
+<span class="text-[8px] text-on-surface-variant font-bold uppercase tracking-tighter">盘点进度</span>
+</div>
+</div>
+<!-- Stats Details -->
+<div class="flex-1 space-y-2.5 min-w-0">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 truncate">
+<span class="w-2 h-2 rounded-full tech-gradient flex-shrink-0"></span>
+<span class="text-xs font-medium text-on-surface-variant truncate">总资产</span>
+</div>
+<span class="text-xs font-bold tabular-nums">12,840</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 truncate">
+<span class="w-2 h-2 rounded-full bg-primary flex-shrink-0"></span>
+<span class="text-xs font-medium text-on-surface-variant truncate">已盘点</span>
+</div>
+<span class="text-xs font-bold text-primary tabular-nums">10,528</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 truncate">
+<span class="w-2 h-2 rounded-full bg-surface-container-high flex-shrink-0"></span>
+<span class="text-xs font-medium text-on-surface-variant truncate">未盘点</span>
+</div>
+<span class="text-xs font-bold text-on-surface tabular-nums">2,312</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Secondary Stats -->
+<section class="grid grid-cols-2 gap-3">
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border-l-4 border-error">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mb-1">异常盘亏</p>
+<div class="flex items-end justify-between">
+<h2 class="text-2xl font-bold text-error tracking-tight">14</h2>
+<span class="text-[9px] font-bold text-error bg-error-container px-1.5 py-0.5 rounded-full mb-0.5">加急</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-xl shadow-sm border-l-4 border-tertiary">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase mb-1">待处理任务</p>
+<div class="flex items-end justify-between">
+<h2 class="text-2xl font-bold text-on-surface tracking-tight">08</h2>
+<span class="material-symbols-outlined text-tertiary text-xl" style="font-variation-settings: 'FILL' 1;">assignment_late</span>
+</div>
+</div>
+</section>
+<!-- Quick Actions Grid (Fixed 4 columns) -->
+<section class="space-y-3">
+<h3 class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest px-1">快速操作</h3>
+<div class="grid grid-cols-4 gap-2">
+<button class="flex flex-col items-center gap-2 p-2 bg-surface-container-lowest rounded-xl hover:bg-surface-container transition-all active:scale-95">
+<div class="w-11 h-11 rounded-xl bg-primary-fixed/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">sensors</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface text-center leading-tight">RFID扫描</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-2 bg-surface-container-lowest rounded-xl hover:bg-surface-container transition-all active:scale-95">
+<div class="w-11 h-11 rounded-xl bg-secondary-fixed/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">inventory</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface text-center leading-tight">库盘点</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-2 bg-surface-container-lowest rounded-xl hover:bg-surface-container transition-all active:scale-95">
+<div class="w-11 h-11 rounded-xl bg-tertiary-fixed/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">add_business</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface text-center leading-tight">资产入库</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-2 bg-surface-container-lowest rounded-xl hover:bg-surface-container transition-all active:scale-95">
+<div class="w-11 h-11 rounded-xl bg-surface-variant/50 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">app_registration</span>
+</div>
+<span class="text-[10px] font-bold text-on-surface text-center leading-tight">快速登记</span>
+</button>
+</div>
+</section>
+<!-- Dynamic Stream (Consistent Padding and Alignment) -->
+<section class="space-y-3">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-[11px] font-bold text-on-surface-variant uppercase tracking-widest">动态流</h3>
+<button class="text-[10px] font-bold text-primary px-2 py-1 rounded-md active:bg-primary/5 transition-colors">全部动态</button>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/10 overflow-hidden divide-y divide-outline-variant/5">
+<div class="p-4 flex gap-4 items-center">
+<div class="w-1 h-8 rounded-full bg-primary flex-shrink-0"></div>
+<div class="flex-1 min-w-0">
+<h4 class="text-xs font-bold text-on-surface truncate">工业服务器 R740</h4>
+<p class="text-[10px] text-on-surface-variant mt-0.5 truncate">扫描成功 - 区域 A024</p>
+</div>
+<span class="text-[9px] text-outline font-medium whitespace-nowrap">10:24</span>
+</div>
+<div class="p-4 flex gap-4 items-center">
+<div class="w-1 h-8 rounded-full bg-tertiary flex-shrink-0"></div>
+<div class="flex-1 min-w-0">
+<h4 class="text-xs font-bold text-on-surface truncate">精密激光切割机</h4>
+<p class="text-[10px] text-on-surface-variant mt-0.5 truncate">维护工单已下达</p>
+</div>
+<span class="text-[9px] text-outline font-medium whitespace-nowrap">09:15</span>
+</div>
+<div class="p-4 flex gap-4 items-center">
+<div class="w-1 h-8 rounded-full bg-error flex-shrink-0"></div>
+<div class="flex-1 min-w-0">
+<h4 class="text-xs font-bold text-on-surface truncate">RFID 标签 #XF-902</h4>
+<p class="text-[10px] text-on-surface-variant mt-0.5 truncate">信号丢失 - 触发告警</p>
+</div>
+<span class="text-[9px] text-outline font-medium whitespace-nowrap">08:42</span>
+</div>
+<div class="p-4 flex gap-4 items-center">
+<div class="w-1 h-8 rounded-full bg-primary flex-shrink-0"></div>
+<div class="flex-1 min-w-0">
+<h4 class="text-xs font-bold text-on-surface truncate">办公套件 XL</h4>
+<p class="text-[10px] text-on-surface-variant mt-0.5 truncate">52件资产已完成入库</p>
+</div>
+<span class="text-[9px] text-outline font-medium whitespace-nowrap">08:10</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Fixed & Evenly Spaced) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 px-4 pb-safe pt-2 h-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-outline-variant/10 shadow-[0_-4px_20px_0px_rgba(0,93,170,0.05)]">
+<div class="flex justify-around items-center h-full max-w-md mx-auto">
+<button class="flex flex-col items-center justify-center text-[#005DAA] dark:text-blue-400 flex-1">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold tracking-tight">首页</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#404753] dark:text-slate-500 flex-1 opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-2xl">inventory_2</span>
+<span class="text-[10px] font-bold tracking-tight">资产</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#404753] dark:text-slate-500 flex-1 opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-2xl">qr_code_scanner</span>
+<span class="text-[10px] font-bold tracking-tight">盘点</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#404753] dark:text-slate-500 flex-1 opacity-70 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<span class="text-[10px] font-bold tracking-tight">系统</span>
+</button>
+</div>
+</nav>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed right-6 bottom-24 w-14 h-14 tech-gradient rounded-full shadow-lg shadow-primary/20 flex items-center justify-center text-on-primary active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+</body></html>

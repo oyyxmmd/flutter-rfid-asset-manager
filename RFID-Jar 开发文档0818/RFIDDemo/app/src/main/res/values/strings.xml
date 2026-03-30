@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RfidDemo</string>
+    <string name="tab_text_1">标签扫描</string>
+    <string name="tab_text_2">标签管理</string>
+    <string name="tab_text_3">设置</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <array name="bank">
+        <item>密码区</item>
+        <item>EPC</item>
+        <item>TID</item>
+        <item>USER</item>
+    </array>
+</resources>

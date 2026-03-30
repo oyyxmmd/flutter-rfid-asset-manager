@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Enterprise RFID - 分类管理</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#ffdbc7",
+              "outline-variant": "#c0c7d4",
+              "outline": "#717784",
+              "secondary": "#466084",
+              "on-tertiary-fixed-variant": "#733500",
+              "surface-tint": "#005fad",
+              "tertiary-fixed-dim": "#ffb688",
+              "on-secondary-container": "#415b7f",
+              "inverse-surface": "#2d3037",
+              "on-error-container": "#93000a",
+              "on-primary-fixed": "#001c3a",
+              "secondary-fixed-dim": "#aec8f2",
+              "tertiary-container": "#b95a00",
+              "on-primary": "#ffffff",
+              "surface-variant": "#e0e2ea",
+              "primary": "#005da9",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#eceef6",
+              "on-background": "#181c22",
+              "inverse-primary": "#a5c8ff",
+              "on-secondary-fixed": "#001c3a",
+              "on-primary-fixed-variant": "#004784",
+              "error": "#ba1a1a",
+              "surface": "#f9f9ff",
+              "secondary-container": "#b9d3fe",
+              "primary-container": "#0376d3",
+              "surface-container-highest": "#e0e2ea",
+              "inverse-on-surface": "#eef0f9",
+              "surface-bright": "#f9f9ff",
+              "on-surface": "#181c22",
+              "error-container": "#ffdad6",
+              "on-primary-container": "#fefcff",
+              "secondary-fixed": "#d4e3ff",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed-variant": "#2d486b",
+              "primary-fixed": "#d4e3ff",
+              "on-error": "#ffffff",
+              "background": "#f9f9ff",
+              "tertiary": "#934600",
+              "on-secondary": "#ffffff",
+              "surface-container-low": "#f1f3fc",
+              "on-surface-variant": "#414752",
+              "surface-dim": "#d8dae2",
+              "surface-container-high": "#e6e8f0",
+              "primary-fixed-dim": "#a5c8ff",
+              "on-tertiary-fixed": "#311300",
+              "on-tertiary-container": "#fffbff"
+            },
+            fontFamily: {
+              "headline": ["Inter", "PingFang SC", "sans-serif"],
+              "body": ["Inter", "PingFang SC", "sans-serif"],
+              "label": ["Inter", "PingFang SC", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', 'PingFang SC', sans-serif; }
+        .glass-header {
+            background: rgba(247, 249, 252, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-50 bg-[#F7F9FC] dark:bg-slate-900 flex justify-between items-center w-full px-6 py-3">
+<div class="flex items-center gap-4">
+<button class="hover:bg-blue-50 dark:hover:bg-slate-800 transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[#005DAA] dark:text-blue-400">arrow_back</span>
+</button>
+<h1 class="text-[#005DAA] dark:text-blue-400 font-semibold text-xl tracking-tight">分类管理</h1>
+</div>
+<button class="hover:bg-blue-50 dark:hover:bg-slate-800 transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[#005DAA] dark:text-blue-400">add</span>
+</button>
+</header>
+<main class="px-4 py-4 max-w-2xl mx-auto space-y-6">
+<!-- Search Area -->
+<div class="relative">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-on-surface-variant/50" placeholder="搜索资产分类..." type="text"/>
+</div>
+<!-- Category Hierarchy -->
+<div class="space-y-4">
+<!-- Root Category 1 -->
+<div class="space-y-2">
+<div class="flex items-center gap-3 py-1 px-2">
+<span class="material-symbols-outlined text-outline text-sm">keyboard_arrow_down</span>
+<span class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">IT设备</span>
+<div class="h-px flex-1 bg-outline-variant/15"></div>
+</div>
+<div class="grid gap-2">
+<!-- Subcategory Card -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex items-center gap-4 border-l-4 border-primary shadow-sm group">
+<div class="flex items-center justify-center w-6 h-6 border-2 border-outline-variant rounded-md group-active:bg-primary-fixed"></div>
+<div class="flex-1">
+<h3 class="font-medium text-on-surface">服务器</h3>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">edit_note</span>
+</button>
+</div>
+<!-- Subcategory Card -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex items-center gap-4 border-l-4 border-primary shadow-sm">
+<div class="flex items-center justify-center w-6 h-6 border-2 border-outline-variant rounded-md"></div>
+<div class="flex-1">
+<h3 class="font-medium text-on-surface">个人电脑</h3>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">edit_note</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Root Category 2 -->
+<div class="space-y-2 pt-2">
+<div class="flex items-center gap-3 py-1 px-2">
+<span class="material-symbols-outlined text-outline text-sm">keyboard_arrow_down</span>
+<span class="text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">办公家具</span>
+<div class="h-px flex-1 bg-outline-variant/15"></div>
+</div>
+<div class="grid gap-2">
+<!-- Selected State Example -->
+<div class="bg-primary-fixed rounded-xl p-3 flex items-center gap-4 border-l-4 border-primary shadow-sm">
+<div class="flex items-center justify-center w-6 h-6 bg-primary text-on-primary rounded-md">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-on-primary-fixed-variant">办公桌</h3>
+</div>
+<button class="p-2 hover:bg-white/20 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-on-primary-fixed-variant">edit_note</span>
+</button>
+</div>
+<!-- Label State Example -->
+<div class="bg-surface-container-lowest rounded-xl p-3 flex items-center gap-4 border-l-4 border-tertiary shadow-sm">
+<div class="flex items-center justify-center w-6 h-6 border-2 border-outline-variant rounded-md"></div>
+<div class="flex-1">
+<h3 class="font-medium text-on-surface">人体工学椅</h3>
+</div>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-2 py-0.5 rounded text-[10px] font-bold uppercase">需盘点</div>
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">edit_note</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Batch Actions Bar (Floating) -->
+<div class="fixed bottom-6 left-0 w-full px-6 flex justify-center pointer-events-none">
+<button class="pointer-events-auto flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-error to-[#93000a] text-on-error rounded-full shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">delete_sweep</span>
+<span class="font-bold text-sm">批量删除 (1)</span>
+</button>
+</div>
+<!-- Background Illustration/Visual Context -->
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none opacity-20">
+<div class="absolute -top-[10%] -right-[10%] w-[40%] aspect-square rounded-full bg-primary-fixed-dim blur-3xl"></div>
+<div class="absolute bottom-[20%] -left-[10%] w-[30%] aspect-square rounded-full bg-secondary-fixed blur-3xl"></div>
+</div>
+</body></html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#ffdbc7",
+              "secondary-fixed": "#d4e3ff",
+              "surface-container": "#eceef6",
+              "surface-container-highest": "#e0e2ea",
+              "surface-container-low": "#f1f3fc",
+              "outline": "#717784",
+              "on-error-container": "#93000a",
+              "secondary": "#466084",
+              "on-tertiary-fixed": "#311300",
+              "on-secondary": "#ffffff",
+              "primary-fixed-dim": "#a5c8ff",
+              "on-tertiary-container": "#fffbff",
+              "surface-tint": "#005fad",
+              "on-surface-variant": "#414752",
+              "primary-container": "#0376d3",
+              "surface": "#f9f9ff",
+              "on-secondary-fixed": "#001c3a",
+              "on-primary": "#ffffff",
+              "surface-bright": "#f9f9ff",
+              "tertiary-container": "#b95a00",
+              "on-primary-container": "#fefcff",
+              "on-background": "#181c22",
+              "on-tertiary": "#ffffff",
+              "primary-fixed": "#d4e3ff",
+              "tertiary": "#934600",
+              "primary": "#005da9",
+              "on-secondary-container": "#415b7f",
+              "inverse-surface": "#2d3037",
+              "on-secondary-fixed-variant": "#2d486b",
+              "on-primary-fixed-variant": "#004784",
+              "on-primary-fixed": "#001c3a",
+              "inverse-primary": "#a5c8ff",
+              "error-container": "#ffdad6",
+              "surface-dim": "#d8dae2",
+              "secondary-container": "#b9d3fe",
+              "surface-container-high": "#e6e8f0",
+              "tertiary-fixed-dim": "#ffb688",
+              "secondary-fixed-dim": "#aec8f2",
+              "surface-container-lowest": "#ffffff",
+              "background": "#f9f9ff",
+              "surface-variant": "#e0e2ea",
+              "on-surface": "#181c22",
+              "outline-variant": "#c0c7d4",
+              "on-error": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#733500",
+              "inverse-on-surface": "#eef0f9"
+            },
+            fontFamily: {
+              "headline": ["Inter", "PingFang SC", "Noto Sans SC", "sans-serif"],
+              "body": ["Inter", "PingFang SC", "Noto Sans SC", "sans-serif"],
+              "label": ["Inter", "PingFang SC", "Noto Sans SC", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      body {
+        font-family: 'PingFang SC', 'Noto Sans SC', 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .tech-gradient {
+        background: linear-gradient(135deg, #005DAA 0%, #0075D5 100%);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-[#F7F9FC] flex items-center justify-between px-4 h-16 w-full">
+<div class="flex items-center">
+<button class="active:opacity-80 transition-opacity p-2 rounded-full hover:bg-[#F2F4F7]">
+<span class="material-symbols-outlined text-[#005DAA]" data-icon="settings">settings</span>
+</button>
+</div>
+<h1 class="font-['PingFang_SC','Inter'] text-lg font-semibold tracking-tight text-[#005DAA]">个人中心</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</header>
+<main class="flex-1 max-w-md mx-auto w-full pb-20">
+<!-- Header Section: Profile Card -->
+<section class="px-4 pt-2 pb-6">
+<div class="tech-gradient rounded-xl p-6 shadow-[0px_4px_20px_0px_rgba(0,93,170,0.15)] relative overflow-hidden">
+<!-- Decorative background pulse -->
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
+<div class="flex items-center gap-4 relative z-10">
+<div class="w-20 h-20 rounded-full border-2 border-white/30 overflow-hidden bg-surface-container-low flex-shrink-0">
+<img alt="用户头像" class="w-full h-full object-cover" data-alt="professional portrait of a middle-aged asian corporate executive in a crisp white shirt with soft office background lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTygTHmFVnClp2SQL4NDmngekSQFQqJBhR6z8k4HZJzWl27W09t10qERhX6NG6dxzEvk4jTa2zrlBwHNjO2yZwV2tgbU8zk3DkjoGxeW52xAnyKeM1C8lYumsHvs2_dmRzHoWzOzM_82y3XluXni7oIucgJdN7muYHYF1pKpaHQ1Atgsz1MJmszf8TIeFLzrYFH9lSLt39eACmbzEnoRTrD8R52i-tLPuaGA7H-Zo9I_2OBNU8juMRk3PwMmtWW1hEd5A2QmHBeaVp"/>
+</div>
+<div class="flex flex-col">
+<h2 class="text-white text-xl font-bold tracking-wide">系统管理员</h2>
+<div class="flex items-center mt-1 text-white/80">
+<span class="material-symbols-outlined text-xs mr-1" data-icon="corporate_fare" style="font-size: 14px;">corporate_fare</span>
+<span class="text-sm font-medium">数字化仓储部</span>
+</div>
+<div class="inline-flex items-center mt-2 px-2 py-0.5 bg-white/20 rounded text-[10px] font-mono text-white tracking-widest uppercase pt-2">
+                            ID: RFID-PRO-01
+                        </div>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-3 gap-2 border-t border-white/10 pt-4">
+<div class="text-center">
+<div class="text-white text-lg font-bold">128</div>
+<div class="text-white/60 text-[10px] uppercase font-medium">在库资产</div>
+</div>
+<div class="text-center border-x border-white/10">
+<div class="text-white text-lg font-bold">14</div>
+<div class="text-white/60 text-[10px] uppercase font-medium">待检设备</div>
+</div>
+<div class="text-center">
+<div class="text-white text-lg font-bold">3</div>
+<div class="text-white/60 text-[10px] uppercase font-medium">系统告警</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Functional List Groups -->
+<div class="px-4 space-y-2">
+<!-- Group 1: 基础数据 -->
+<div>
+<h3 class="text-[11px] font-bold text-on-surface-variant/60 uppercase tracking-widest px-2 mb-2">基础数据</h3>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<!-- Item 1: 部门管理 -->
+<a class="flex items-center justify-between px-4 active:bg-surface-container-low transition-colors group py-3" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="corporate_fare">corporate_fare</span>
+</div>
+<span class="text-on-surface font-medium text-sm">部门管理</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-active:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</a>
+<div class="mx-4 h-px bg-surface-container"></div>
+<!-- Item 2: 分类管理 -->
+<a class="flex items-center justify-between px-4 active:bg-surface-container-low transition-colors group py-3" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+</div>
+<span class="text-on-surface font-medium text-sm">分类管理</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-active:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Group 2: 设备配置 -->
+<div>
+<h3 class="text-[11px] font-bold text-on-surface-variant/60 uppercase tracking-widest px-2 mb-2">设备配置</h3>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<!-- Item 3: RFID 配置 -->
+<a class="flex items-center justify-between px-4 active:bg-surface-container-low transition-colors group py-3" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="settings_input_antenna">settings_input_antenna</span>
+</div>
+<div class="flex flex-col">
+<span class="text-on-surface font-medium text-sm">RFID 配置</span>
+<span class="text-[10px] text-on-surface-variant/70">频率、功率与读写器管理</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-error-container text-on-error-container text-[10px] font-bold rounded-full">3 待优化</span>
+<span class="material-symbols-outlined text-outline-variant group-active:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Additional Group: 系统支持 -->
+<div>
+<h3 class="text-[11px] font-bold text-on-surface-variant/60 uppercase tracking-widest px-2 mb-2">辅助功能</h3>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+<a class="flex items-center justify-between px-4 active:bg-surface-container-low transition-colors group py-3" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+</div>
+<span class="text-on-surface font-medium text-sm">操作日志</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</a>
+<div class="mx-4 h-px bg-surface-container"></div>
+<a class="flex items-center justify-between px-4 active:bg-surface-container-low transition-colors group py-3" href="#">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+</div>
+<span class="text-on-surface font-medium text-sm">关于系统</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-[10px] text-outline">v2.4.0</span>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Logout Button -->
+<div class="px-2 pt-2">
+<button class="w-full py-4 text-error font-bold text-sm bg-error-container/20 rounded-xl active:scale-95 transition-transform border border-error/10">
+                    退出当前账号
+                </button>
+</div>
+</div>
+<!-- System Branding Footer -->
+</main>
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pt-2 pb-safe px-4 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-t border-[#C0C7D6]/15 shadow-[0px_-4px_20px_0px_rgba(0,93,170,0.06)] rounded-t-2xl">
+<a class="flex flex-col items-center justify-center text-[#404753] dark:text-slate-500 px-3 py-1 hover:text-[#005DAA] dark:hover:text-blue-300 transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['PingFang_SC'] text-[11px] font-medium leading-tight">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#404753] dark:text-slate-500 px-3 py-1 hover:text-[#005DAA] dark:hover:text-blue-300 transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-['PingFang_SC'] text-[11px] font-medium leading-tight">资产</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#404753] dark:text-slate-500 px-3 py-1 hover:text-[#005DAA] dark:hover:text-blue-300 transition-colors" href="#">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<span class="font-['PingFang_SC'] text-[11px] font-medium leading-tight">盘点</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#D4E3FF] dark:bg-blue-900/40 text-[#005DAA] dark:text-blue-200 rounded-xl px-3 py-1 transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['PingFang_SC'] text-[11px] font-medium leading-tight">系统</span>
+</a>
+</nav></body></html>
