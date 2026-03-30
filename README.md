@@ -1,3 +1,3 @@
-# rfid_asset_manager_noNetwork
+# rfid_asset_manager
 
 Offline RFID asset manager built with Flutter.

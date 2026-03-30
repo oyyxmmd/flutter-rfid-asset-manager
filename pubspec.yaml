@@ -1,5 +1,5 @@
-name: rfid_asset_manager_nonetwork
-description: "rfid_asset_manager_noNetwork"
+name: rfid_asset_manager
+description: "rfid_asset_manager"
 publish_to: 'none'
 version: 0.1.0+1
 

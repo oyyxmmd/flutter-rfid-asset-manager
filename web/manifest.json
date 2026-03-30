@@ -1,11 +1,11 @@
 {
-    "name": "rfid_asset_manager_noNetwork",
-    "short_name": "rfid_asset_manager_noNetwork",
+    "name": "rfid_asset_manager",
+    "short_name": "rfid_asset_manager",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "rfid_asset_manager_noNetwork",
+    "description": "rfid_asset_manager",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
